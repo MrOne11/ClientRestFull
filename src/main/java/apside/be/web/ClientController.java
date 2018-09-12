@@ -15,16 +15,16 @@ public class ClientController {
 	@Autowired
 	private ClientRepository clientRepository;
 	
-	@RequestMapping(value="/Allclients", method=RequestMethod.GET)
+	@GetMapping(value="/Allclients")
 	public List<Client> getClients(){
 		return clientRepository.findAll();
 	}
-	@RequestMapping(value="/client/{id}", method=RequestMethod.GET)
+	@GetMapping(value="/client/{id}")
 	public Optional<Client> getClientById(@PathVariable int id){
 		return clientRepository.findById(id);
 		
 	}
-	@RequestMapping(value="/clients/{id}", method=RequestMethod.GET)
+	@GetMapping(value="/clients/{id}")
 	public Client getClientbyName(@PathVariable String id){
 		return clientRepository.findByName(id);
 		
