@@ -19,7 +19,6 @@ node{
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
     }
- */ 
  stage("Quality Gate Status Check"){
           timeout(time: 1, unit: 'HOURS') {
               def qg = waitForQualityGate()
@@ -34,7 +33,8 @@ node{
               }
           }
       }
-      
+       */ 
+
    stage('Deploy to Tomcat'){
        sshagent(['tomcat-dev']) {
            sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.17.0.4:/opt/app/tomcat/webapps/'
