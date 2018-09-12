@@ -6,7 +6,7 @@
 	<groupId>apside.be</groupId>
 	<artifactId>ClientRestFull</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>ClientRestFull</name>
 	<description>Demo project for Spring Boot</description>
