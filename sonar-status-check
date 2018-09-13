@@ -12,13 +12,15 @@ node{
      def mvnHome =tool name: 'mvn', type: 'maven'
     sh "${mvnHome}/bin/mvn package"
   }
-/*
+
   stage('SonarQube Analysis') {
         def mvnHome =tool name: 'mvn', type: 'maven'
         withSonarQubeEnv('sonar-6') { 
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
-    }
+ 
+ }
+/* 
  stage("Quality Gate Status Check"){
           timeout(time: 1, unit: 'HOURS') {
               def qg = waitForQualityGate()
@@ -33,7 +35,7 @@ node{
               }
           }
       }
-       */ 
+       
 
    stage('Deploy to Tomcat'){
        sshagent(['tomcat-dev']) {
@@ -55,5 +57,6 @@ node{
       tokenCredentialId: 'slack-demo'
 
   }
+  */ 
   
 }
