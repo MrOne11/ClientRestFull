@@ -12,7 +12,7 @@ node{
      def mvnHome =tool name: 'mvn', type: 'maven'
     sh "${mvnHome}/bin/mvn package"
   }
-
+ /*
   stage('SonarQube Analysis') {
         def mvnHome =tool name: 'mvn', type: 'maven'
         withSonarQubeEnv('sonar') { 
@@ -20,7 +20,7 @@ node{
         }
  
  }
- /*
+
  stage("Quality Gate Status Check"){
           timeout(time: 1, unit: 'HOURS') {
               def qg = waitForQualityGate()
@@ -36,13 +36,13 @@ node{
           }
       }
    */    
-/*
+
    stage('Deploy to Tomcat'){
        sshagent(['tomcat-dev']) {
-           sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.17.0.4:/opt/tomcat8/webapps/'
+           sh 'scp -o StrictHostKeyChecking=no target/*.war Mohamed@172.17.0.4:/opt/tomcat8/webapps/'
            }
    }
-   */
+   
   stage('Email notification'){
     mail bcc: '', body: '''Hi Welcome to jenkins email alerts
     Thankss
