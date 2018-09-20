@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import apside.be.dao.ClientRepository;
 import apside.be.entity.Client;
 
 @SpringBootApplication
-public class ClientRestFullApplication 
-		implements CommandLineRunner{
+public class ClientRestFullApplication   extends SpringBootServletInitializer  
+	implements CommandLineRunner{
 
 
 	@Autowired
@@ -20,7 +20,10 @@ public class ClientRestFullApplication
 		SpringApplication.run(ClientRestFullApplication.class, args);
 	}
 	
-	
+	 @Override
+   	 protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+      		  return application.sources(ClientRestFullApplication.class);
+    }
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -31,4 +34,5 @@ public class ClientRestFullApplication
 		clientRepository.save(new Client("APSIDE"));
 		
 	}
+	
 }
