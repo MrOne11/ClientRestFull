@@ -9,7 +9,8 @@ import apside.be.dao.ClientRepository;
 import apside.be.entity.Client;
 
 @SpringBootApplication
-public class ClientRestFullApplication implements CommandLineRunner{
+public class ClientRestFullApplication extends SpringBootServletInitializer
+		implements CommandLineRunner{
 
 
 	@Autowired
@@ -18,6 +19,11 @@ public class ClientRestFullApplication implements CommandLineRunner{
 	public static void main(String[] args) {
 		SpringApplication.run(ClientRestFullApplication.class, args);
 	}
+	
+	@Override
+	  protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+	      return builder.sources(ClientRestFullApplication.class);
+	  }
 
 	@Override
 	public void run(String... args) throws Exception {
