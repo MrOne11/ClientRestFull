@@ -24,9 +24,9 @@ public class ClientController {
 		return clientRepository.findById(id);
 		
 	}
-	@GetMapping("/clients/{id}")
-	public Client getClientbyName(@PathVariable String id){
-		return clientRepository.findByName(id);
+	@GetMapping("/client/{id}")
+	public Client getClientbyName(@PathVariable String name){
+		return clientRepository.findByName(name);
 		
 	}
 	
