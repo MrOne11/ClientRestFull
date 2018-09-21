@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import apside.be.dao.ClientRepository;
 import apside.be.entity.Client;
@@ -16,14 +17,16 @@ public class ClientRestFullApplication   extends SpringBootServletInitializer
 	@Autowired
 	private ClientRepository clientRepository;
 	
-	public static void main(String[] args) {
-		SpringApplication.run(ClientRestFullApplication.class, args);
-	}
+	
 	
 	 @Override
    	 protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
       		  return application.sources(ClientRestFullApplication.class);
-    }
+  	  }
+	  
+	public static void main(String[] args) {
+		SpringApplication.run(ClientRestFullApplication.class, args);
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
