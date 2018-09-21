@@ -15,7 +15,7 @@ public class ClientController {
 	@Autowired
 	private ClientRepository clientRepository;
 	
-	@GetMapping("/Allclients")
+	@GetMapping("/clients")
 	public List<Client> getClients(){
 		return clientRepository.findAll();
 	}
